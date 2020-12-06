@@ -1,0 +1,36 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "es2015",
+        "target": "ES6",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "inlineSources": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noEmitOnError": true,
+        "skipLibCheck": true,
+        "stripInternal": true,
+        "strict": true,
+        "lib": [
+            "ESNext",
+            "ES2020",
+            "dom"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@microsoft/signalr": [
+                "./"
+            ],
+        }
+    },
+    "exclude": [
+        "tests",
+        "dist"
+    ]
+}
