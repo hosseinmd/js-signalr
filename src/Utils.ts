@@ -183,17 +183,8 @@ export class SubjectSubscription<T> implements ISubscription<T> {
 export class ConsoleLogger implements ILogger {
   private readonly minimumLogLevel: LogLevel;
 
-  // Public for testing purposes.
-  public outputConsole: {
-    error(message: any): void;
-    warn(message: any): void;
-    info(message: any): void;
-    log(message: any): void;
-  };
-
   constructor(minimumLogLevel: LogLevel) {
     this.minimumLogLevel = minimumLogLevel;
-    this.outputConsole = console;
   }
 
   public log(logLevel: LogLevel, message: string): void {
@@ -201,23 +192,23 @@ export class ConsoleLogger implements ILogger {
       switch (logLevel) {
         case LogLevel.Critical:
         case LogLevel.Error:
-          this.outputConsole.error(
+          console.error(
             `[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`,
           );
           break;
         case LogLevel.Warning:
-          this.outputConsole.warn(
+          console.warn(
             `[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`,
           );
           break;
         case LogLevel.Information:
-          this.outputConsole.info(
+          console.info(
             `[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`,
           );
           break;
         default:
           // console.debug only goes to attached debuggers in Node, so we use console.log for Trace and Debug
-          this.outputConsole.log(
+          console.log(
             `[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`,
           );
           break;
